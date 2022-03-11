@@ -6,12 +6,10 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          55.79584,
-          49.22624
+          49.22624,
+          55.79584
+
         ]
-      },
-      "properties": {
-        "name": "Dinagat Islands"
       }
     }
   ]

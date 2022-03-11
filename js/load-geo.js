@@ -27,9 +27,9 @@ function showGeoJSONData (map) {
  * Boilerplate map initialization code starts below:
  */
 // Step 1: initialize communication with the platform
-var apikey = 'QpPJaRPEFIwfXOpsTU4h1qpXf7H2UzbyhOkG6rIIPVE';
+var apikey = 'H6XyiCT0w1t9GgTjqhRXxDMrVj9h78ya3NuxlwM7XUs';//'QpPJaRPEFIwfXOpsTU4h1qpXf7H2UzbyhOkG6rIIPVE';
 var platform = new H.service.Platform({
-    apikey: 'QpPJaRPEFIwfXOpsTU4h1qpXf7H2UzbyhOkG6rIIPVE'
+    apikey: 'H6XyiCT0w1t9GgTjqhRXxDMrVj9h78ya3NuxlwM7XUs';//'QpPJaRPEFIwfXOpsTU4h1qpXf7H2UzbyhOkG6rIIPVE'
 });
 var defaultLayers = platform.createDefaultLayers();
 

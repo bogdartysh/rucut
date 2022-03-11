@@ -18,14 +18,6 @@
     // initialize the map
     var map = L.map('map').setView([55.8, 49.2], 3);
 
-    // load a tile layer
-    L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
-        {
-            attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
-            maxZoom: 10,
-            minZoom: 4
-        }).addTo(map);
-
     // load GeoJSON from an external file
     fetch("data/kazan-110322.json").then(res => res.json()).then(data => {
         // add GeoJSON layer to the map once the file is loaded

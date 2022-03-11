@@ -1,24 +1,37 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-    <meta name="description" content="Parse a GeoJSON file and display the data on a map">
     <title>бізнес що пішов з рф</title>
-    <link rel="stylesheet" type="text/css" href="css/map.css" />
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css"/>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-data.js"></script>
-    <script type="text/javascript" src='js/credentials.js'></script>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>
+    <style>
+        #map{ height: 80% }
+    </style>
 </head>
 <body>
-<h1>Companies cut off russia / бізнес що пішов з рф /  компании ушедшие с рф / </h1>
+<h1>Companies cut off russia / бізнес що пішов з рф / компании ушедшие с рф / </h1>
 <p>Kazan, Tatarstan map</p>
 <div id="map"></div>
-<script type="text/javascript" src="js/load-geo.js">
+
+<script>
+
+    // initialize the map
+    var map = L.map('map').setView([55.8, 49.2], 3);
+
+    // load a tile layer
+    L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png',
+        {
+            attribution: 'Tiles by <a href="http://mapc.org">MAPC</a>, Data by <a href="http://mass.gov/mgis">MassGIS</a>',
+            maxZoom: 10,
+            minZoom: 4
+        }).addTo(map);
+
+    // load GeoJSON from an external file
+    fetch("data/kazan-110322.json").then(res => res.json()).then(data => {
+        // add GeoJSON layer to the map once the file is loaded
+        L.geoJson(data).addTo(map);
+    });
+
 </script>
 </body>
 </html>

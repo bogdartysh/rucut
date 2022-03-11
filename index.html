@@ -19,7 +19,7 @@
     var map = L.map('map').setView([55.8, 49.2], 3);
 
     // load GeoJSON from an external file
-    fetch("data/kazan-110322.json").then(res => res.json()).then(data => {
+    fetch("https://bogdartysh.github.io/rucut/data/kazan-110322.json").then(res => res.json()).then(data => {
         // add GeoJSON layer to the map once the file is loaded
         L.geoJson(data).addTo(map);
     });

@@ -16,10 +16,18 @@
 <script>
 
     // initialize the map
-    var map = L.map('map').setView([55.8, 49.2], 3);
+    var map = L.map('map').setView([55.8, 49.2], 10);
 
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoiYm9nZGFydHlzaCIsImEiOiJjbDBtcTlpOXcxNTF3M2NxdG5sM3hueWh2In0.oO_pGqHQxewlcBKJaeODcg'
+    }).addTo(map);
     // load GeoJSON from an external file
-    fetch("https://bogdartysh.github.io/rucut/data/kazan-110322.json").then(res => res.json()).then(data => {
+    fetch("data/kazan-110322.json").then(res => res.json()).then(data => {
         // add GeoJSON layer to the map once the file is loaded
         L.geoJson(data).addTo(map);
     });
